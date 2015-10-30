@@ -16,7 +16,7 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     home/login.cpp \
     gitsql/sqlconn.cpp \
-    mainwindow.cpp
+
 
 
 HEADERS  += mainwindow.h \
