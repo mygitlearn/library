@@ -16,12 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     home/login.cpp \
     gitsql/sqlconn.cpp \
+    manage/administration.cpp
+
 
 
 
 HEADERS  += mainwindow.h \
     home/login.h \
-    gitsql/sqlconn.h
+    gitsql/sqlconn.h \
+    manage/administration.h
 
 
 FORMS    += mainwindow.ui \
+    manage/administration.ui
