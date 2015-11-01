@@ -16,6 +16,10 @@ public:
     explicit administration(QMainWindow *parent = 0);
     ~administration();
 
+private slots:
+    void on_personalInfo_triggered();
+    void on_addStudent_triggered();
+
 private:
     Ui::administration *ui;
 };

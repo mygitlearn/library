@@ -55,26 +55,6 @@
      <string>密 码：</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="input_account">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>100</y>
-      <width>181</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="input_password">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>150</y>
-      <width>181</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="Signin">
     <property name="geometry">
      <rect>
@@ -139,6 +119,26 @@
     </property>
     <property name="text">
      <string>退出</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_account">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>100</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_password">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>150</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
     </property>
    </widget>
   </widget>

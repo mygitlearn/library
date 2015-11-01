@@ -1,5 +1,8 @@
 #include "administration.h"
 #include "ui_administration.h"
+#include <QMessageBox>
+#include <QPalette>
+#include <QString>
 
 
 #include <iostream>
@@ -16,4 +19,14 @@ administration::administration(QMainWindow *parent) :
 administration::~administration()
 {
     delete ui;
+}
+
+void administration::on_addStudent_triggered()
+{
+    QMessageBox::information(NULL, QString("title"), QString("sd"));
+}
+
+void administration::on_personalInfo_triggered()
+{
+    QMessageBox::information(NULL, QString("title"), QString("45678"));
 }

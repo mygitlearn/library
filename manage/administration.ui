@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">color: rgb(85, 85, 255);</string>
+  </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
   </property>
@@ -30,67 +33,76 @@
     <property name="title">
      <string>个人信息</string>
     </property>
+    <addaction name="personalInfo"/>
    </widget>
    <widget class="QMenu" name="menuXuesehngguanli">
+    <property name="styleSheet">
+     <string>color: rgb(85, 85, 255);</string>
+    </property>
     <property name="title">
      <string>学生管理</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="action_2"/>
-    <addaction name="action_3"/>
+    <addaction name="addStudent"/>
+    <addaction name="studentInfo"/>
+    <addaction name="studnetDustbin"/>
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
      <string>图书管理</string>
     </property>
-    <addaction name="action_4"/>
+    <addaction name="addbooks"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
      <string>事务安排</string>
     </property>
-    <addaction name="action_5"/>
-    <addaction name="action_6"/>
-    <addaction name="action_7"/>
+    <addaction name="tidybooks"/>
+    <addaction name="sanitation"/>
+    <addaction name="annunciate"/>
    </widget>
    <addaction name="menuSddsdsds"/>
    <addaction name="menuXuesehngguanli"/>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
   </widget>
-  <action name="action">
+  <action name="addStudent">
    <property name="text">
     <string>添加学生</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="studentInfo">
    <property name="text">
     <string>管理学生信息</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="studnetDustbin">
    <property name="text">
     <string>信息回收站</string>
    </property>
   </action>
-  <action name="action_4">
+  <action name="addbooks">
    <property name="text">
     <string>添加图书</string>
    </property>
   </action>
-  <action name="action_5">
+  <action name="tidybooks">
    <property name="text">
     <string>图书整理</string>
    </property>
   </action>
-  <action name="action_6">
+  <action name="sanitation">
    <property name="text">
     <string>卫生清洁</string>
    </property>
   </action>
-  <action name="action_7">
+  <action name="annunciate">
    <property name="text">
     <string>信息通告</string>
+   </property>
+  </action>
+  <action name="personalInfo">
+   <property name="text">
+    <string>个人信息</string>
    </property>
   </action>
  </widget>
