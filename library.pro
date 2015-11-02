@@ -16,7 +16,8 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     home/login.cpp \
     gitsql/sqlconn.cpp \
-    manage/administration.cpp
+    manage/administration.cpp \
+    home/regist.cpp
 
 
 
@@ -24,8 +25,13 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     home/login.h \
     gitsql/sqlconn.h \
-    manage/administration.h
+    manage/administration.h \
+    home/regist.h
 
 
 FORMS    += mainwindow.ui \
-    manage/administration.ui
+    manage/administration.ui \
+    home/regist.ui
+
+RESOURCES += \
+    images.qrc

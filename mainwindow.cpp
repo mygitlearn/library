@@ -1,8 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QtSql/QSqlQuery>
+#include <QCryptographicHash>
+#include <QtCore/QCoreApplication>
 #include <iostream>
 #include <string>
+#include <QString>
+#include <QChar>
 #include <QWidget>
 #include <QPalette>
 #include <QMessageBox>
@@ -10,6 +14,7 @@
 
 #include "manage/administration.h"
 #include <gitsql/sqlconn.h>
+#include <home/regist.h>
 
 using namespace std;
 
@@ -24,43 +29,77 @@ Welcome::~Welcome()
 {
     delete ui;
 }
+//判断字符串中间是否有空格
+int deBlank(QString &strs){
+    int len = strs.length();
+    for(int i=0; i<len; i++){
+        if(strs.at(i).isSpace()){
+            return 1;
+        }
+    }
+}
 
+//字符串信息加密处理
+QString encryption(QString &pwd){
+
+    QString pwdmd5;
+    QByteArray ba;
+    ba = QCryptographicHash::hash( pwd.toLatin1(), QCryptographicHash::Md5 );
+    pwdmd5.append(ba.toHex());
+    return pwdmd5;
+}
 
 void Welcome::on_Signin_clicked()
 {
 
-    Sqlconn b;
-    QSqlDatabase db = b.conn();
+//    Sqlconn b;
+//    QSqlDatabase db = b.conn();
 
-    QString account = ui->input_account->text();
-    QString password = ui->input_password->text();
+//    QString account = ui->input_account->text();
+//    QString password = ui->input_password->text();
+//    int res_ac = deBlank(account);
+//    int res_pw = deBlank(password);
+//    //判断是否为空
+//    if(account.isEmpty() || password.isEmpty()){
+//        QMessageBox::information(NULL, QString("Waring"), QString("Please complete the login information"));
+//        return;
+//    }
+//    //判断是否有空格
+//    if(res_ac==1 || res_pw==1){
+//         QMessageBox::information(NULL, QString("Waring"), QString("Prohibition of spaces appear"));
+//         return;
+//    }
+
+////获取加密密码
+//    QString pwdmd5 = encryption(password);
+////启动数据库查询
+//    QSqlQuery query;
+//    query.exec("SELECT password FROM user where account ="+account);
+//    QString search_pasword;
+//    while (query.next()){
+//        search_pasword = query.value(0).toString();
+//    }
+//    if(pwdmd5 != search_pasword){
+//        QMessageBox::information(NULL, QString("title"), QString("Password input error"));
+//        return;
+//    }
+
+    administration  *tt = new administration();
+    tt->show();
+    this->hide();
 
 
+}
 
-        QSqlQuery query;
-        query.exec("SELECT * FROM user where id =1");
-        QString salary;
+//注册
+void Welcome::on_signup_clicked()
+{
+    regist *reg = new regist();
+    reg->show();
+}
 
-        while (query.next()){
-            int i=0;
-            int name = query.value(0).toInt();
-            salary = query.value(1).toString();
-            //cout << salary << endl;
-            i++;
-
-        }
-    QMessageBox::information(NULL, QString("title"), salary);
-
-
-
-//      administration  *tt = new administration();
-//      tt->show();
-//      this->hide();
-
-    //定义新窗口
-    //    QWidget *student_management;
-    //    student_management = new QWidget();
-    //    student_management->setBaseSize(500,300);
-    //    student_management->show();
-
+//退出
+void Welcome::on_legout_clicked()
+{
+    this->close();
 }

@@ -19,6 +19,10 @@ public:
 private slots:
     void on_Signin_clicked();
 
+    void on_legout_clicked();
+
+    void on_signup_clicked();
+
 private:
     Ui::Welcome *ui;
 };
