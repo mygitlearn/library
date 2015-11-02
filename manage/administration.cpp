@@ -3,6 +3,9 @@
 #include <QMessageBox>
 #include <QPalette>
 #include <QString>
+#include <QWidget>
+#include <QScrollArea>
+
 
 
 #include <iostream>
@@ -13,6 +16,7 @@ administration::administration(QMainWindow *parent) :
     QMainWindow(parent),
     ui(new Ui::administration)
 {
+
     ui->setupUi(this);
 }
 
@@ -21,12 +25,19 @@ administration::~administration()
     delete ui;
 }
 
-void administration::on_addStudent_triggered()
-{
-    QMessageBox::information(NULL, QString("title"), QString("sd"));
-}
 
 void administration::on_personalInfo_triggered()
 {
-    QMessageBox::information(NULL, QString("title"), QString("45678"));
+    scroll = new QScrollArea(this);
+    scroll->setBackgroundRole(QPalette::Dark);
+    scroll->setGeometry(0,23,350,350);
+    scroll->show();
+
+//    QMessageBox::information(NULL, QString("title"), QString("gerenxinxi"));
+}
+
+void administration::on_addStudent_triggered()
+{
+    scroll->hide();
+    QMessageBox::information(NULL, QString("title"), QString("addstudent"));
 }

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QMainWindow>
+#include <QScrollArea>
 
 namespace Ui {
 class administration;
@@ -15,10 +16,12 @@ class administration : public QMainWindow
 public:
     explicit administration(QMainWindow *parent = 0);
     ~administration();
+    QScrollArea *scroll;
 
 private slots:
     void on_personalInfo_triggered();
     void on_addStudent_triggered();
+
 
 private:
     Ui::administration *ui;
