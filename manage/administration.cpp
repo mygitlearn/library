@@ -1,4 +1,4 @@
-#include "administration.h"
+﻿#include "administration.h"
 #include "ui_administration.h"
 #include <QMessageBox>
 #include <QPalette>
@@ -19,8 +19,8 @@ administration::administration(QMainWindow *parent) :
     adminScroll = new QScrollArea(this);
     adminScroll->setBackgroundRole(QPalette::Base);
     adminScroll->setGeometry(0,23,width,height);
-    adminScroll->show();
-
+    adminScroll->setVisible(true);
+    session = adminScroll;
     ui->setupUi(this);
 }
 
@@ -30,21 +30,30 @@ administration::~administration()
 }
 
 
-
 //添加容器（管理员个人信息）
 void administration::on_personalInfo_triggered()
 {
+    session->setVisible(false);
     adminScroll->setVisible(false);
-    scroll = new QScrollArea(this);
-    scroll->setBackgroundRole(QPalette::Dark);
-    scroll->setGeometry(0,23,600,600);
-    scroll->show();
-
-//    QMessageBox::information(NULL, QString("title"), QString("gerenxinxi"));
+    managerScroll = new QScrollArea(this);
+    managerScroll->setBackgroundRole(QPalette::Dark);
+    managerScroll->setGeometry(0,23,600,600);
+    managerScroll->setVisible(true);
+    session = managerScroll;
 }
 
+//添加学生信息
 void administration::on_addStudent_triggered()
 {
-    scroll->setVisible(false);
+
+    session->setVisible(false);
+
+    managerScroll->setVisible(false);
+    addStudentScroll = new QScrollArea(this);
+    addStudentScroll->setBackgroundRole(QPalette::Base);
+    addStudentScroll->setGeometry(0,23,300,600);
+    addStudentScroll->setVisible(true);
+
+    session = addStudentScroll;
     QMessageBox::information(NULL, QString("title"), QString("addstudent"));
 }
