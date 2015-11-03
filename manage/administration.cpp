@@ -29,6 +29,13 @@ administration::~administration()
     delete ui;
 }
 
+//生成scrollArea容器的公共函数
+void administration::publicScroll(QScrollArea *scrollName){
+    scrollName->setBackgroundRole(QPalette::Dark);
+    scrollName->setGeometry(x,y,width,height);
+    scrollName->setVisible(true);
+    session = scrollName;
+}
 
 //添加容器（管理员个人信息）
 void administration::on_personalInfo_triggered()
@@ -36,24 +43,33 @@ void administration::on_personalInfo_triggered()
     session->setVisible(false);
     adminScroll->setVisible(false);
     managerScroll = new QScrollArea(this);
-    managerScroll->setBackgroundRole(QPalette::Dark);
-    managerScroll->setGeometry(0,23,600,600);
-    managerScroll->setVisible(true);
-    session = managerScroll;
+    publicScroll(managerScroll);
 }
 
 //添加学生信息
 void administration::on_addStudent_triggered()
 {
-
     session->setVisible(false);
-
     managerScroll->setVisible(false);
     addStudentScroll = new QScrollArea(this);
-    addStudentScroll->setBackgroundRole(QPalette::Base);
-    addStudentScroll->setGeometry(0,23,300,600);
-    addStudentScroll->setVisible(true);
-
-    session = addStudentScroll;
+    publicScroll(addStudentScroll);
     QMessageBox::information(NULL, QString("title"), QString("addstudent"));
+}
+
+//管理学生信息
+
+void administration::on_studentInfo_triggered()
+{
+    session->setVisible(false);
+    manageStudengScroll = new QScrollArea(this);
+    publicScroll(manageStudengScroll);
+    QMessageBox::information(NULL, QString("title"), QString("manageStudengScroll"));
+}
+
+void administration::on_studnetDustbin_triggered()
+{
+    session->setVisible(false);
+    studentDustbinScroll = new QScrollArea(this);
+    publicScroll(studentDustbinScroll);
+    QMessageBox::information(NULL, QString("title"), QString("success"));
 }

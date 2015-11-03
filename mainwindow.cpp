@@ -96,8 +96,6 @@ void Welcome::on_Signin_clicked()
     administration  *tt = new administration();
     tt->show();
     this->hide();
-
-
 }
 
 //注册
