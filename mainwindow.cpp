@@ -10,6 +10,7 @@
 #include <QWidget>
 #include <QPalette>
 #include <QMessageBox>
+#include <QScrollArea>
 
 
 #include "manage/administration.h"
@@ -38,6 +39,7 @@ int deBlank(QString &strs){
         }
     }
 }
+
 
 //字符串信息加密处理
 QString encryption(QString &pwd){
@@ -70,9 +72,9 @@ void Welcome::on_Signin_clicked()
 //         return;
 //    }
 
-////获取加密密码
+// //获取加密密码
 //    QString pwdmd5 = encryption(password);
-////启动数据库查询
+// //启动数据库查询
 //    QSqlQuery query;
 //    query.exec("SELECT password FROM user where account ="+account);
 //    QString search_pasword;

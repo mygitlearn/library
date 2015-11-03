@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <qwidget.h>
+#include <QScrollArea>
+#include <QSemaphore>
+
+
 namespace Ui {
 class Welcome;
 }
@@ -15,6 +19,8 @@ public:
     explicit Welcome(QWidget *parent = 0);
     ~Welcome();
 
+    const static int width = 800;
+    const static int height =600;
 
 private slots:
     void on_Signin_clicked();
@@ -22,6 +28,8 @@ private slots:
     void on_legout_clicked();
 
     void on_signup_clicked();
+
+
 
 private:
     Ui::Welcome *ui;
