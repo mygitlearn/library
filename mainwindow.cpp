@@ -93,6 +93,7 @@ void Welcome::on_Signin_clicked()
     }
 
     administration  *tt = new administration();
+    tt->setFixedSize(800,600);
     tt->show();
     this->hide();
 }

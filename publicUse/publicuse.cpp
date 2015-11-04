@@ -1,6 +1,7 @@
 #include "publicuse.h"
 #include <QColor>
 #include <QPalette>
+#include <QMessageBox>
 
 //publicUse::publicUse(){}
 
@@ -28,4 +29,6 @@ void publicUse::publicComboBox(QScrollArea *scrollName, QComboBox *cbs, int cx, 
     cbs->addItem("heise");
     cbs->addItem("lanse");
     cbs->setVisible(true);
+    QString aa=cbs->currentText();
+    QMessageBox::information(NULL, QString("title"), aa);
 }

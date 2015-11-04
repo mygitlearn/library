@@ -67,11 +67,21 @@ void administration::on_addStudent_triggered()
     pu->publicLabel(addStudentScroll,lab_studentEmail,QString::fromLocal8Bit("邮 箱 ："),80,330,80,25);
     pu->publicLabel(addStudentScroll,lab_studentDiscipline,QString::fromLocal8Bit("违 纪 ："),80,365,80,25);
 
-    pu->publicTextEdit(addStudentScroll,studentNameText,165,50,150,25);
-    pu->publicComboBox(addStudentScroll,cb,160,190,150,25);
+    pu->publicTextEdit(addStudentScroll,studentNameText,165,50,200,25);
+    pu->publicTextEdit(addStudentScroll,studentNameText,165,85,200,25);
+    pu->publicTextEdit(addStudentScroll,studentNameText,165,120,200,25);
+    pu->publicTextEdit(addStudentScroll,studentNameText,165,155,200,25);
+    pu->publicComboBox(addStudentScroll,studentCollegeBox,165,190,200,25);
+    pu->publicComboBox(addStudentScroll,studentCollegeBox,165,225,200,25);
+    pu->publicComboBox(addStudentScroll,studentCollegeBox,165,260,200,25);
+    pu->publicTextEdit(addStudentScroll,studentNameText,165,295,200,25);
+    pu->publicTextEdit(addStudentScroll,studentNameText,165,330,200,25);
+    pu->publicTextEdit(addStudentScroll,studentNameText,165,365,500,120);
 
-
-
+    pb_submit = new QPushButton(this);
+    pb_submit->setText(QString::fromLocal8Bit("提 交"));
+    pb_submit->setGeometry(10,10,100,30);
+    pb_submit->setVisible(true);
 }
 
 //学生管理/管理学生信息

@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <QTextEdit>
 #include <QComboBox>
+#include <QPushButton>
 #include <QString>
 #include <QLabel>
 #include <QFont>
@@ -17,6 +18,7 @@ public:
     void publicLabel(QScrollArea *scrollName, QLabel *labs,QString title, int lx, int ly, int lwidth, int lheight);
     void publicTextEdit(QScrollArea *scrollName, QTextEdit *les, int lx, int ly, int lwidth, int lheight);
     void publicComboBox(QScrollArea *scrollName, QComboBox *cbs, int cx, int cy, int cwidth, int cheight);
+    void publicPushButton(QScrollArea *scrollName, QPubshBi *cbs, int cx, int cy, int cwidth, int cheight);
     QFont ft;
 };
 

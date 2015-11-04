@@ -13,6 +13,7 @@
 #include <QLineEdit>
 #include <QTextEdit>
 #include <QComboBox>        //下拉列表类
+#include <QPushButton>
 
 #include "publicUse/publicuse.h"
 
@@ -53,13 +54,12 @@ public:
     QLabel *lab_studentPhone, *lab_studentEmail, *lab_studentDiscipline;        //学生联系方式，学生邮箱，学生违纪记录
     //与标签对应的输入框
     QTextEdit *studentNameText, *studentSexText, *studentAgeText, *studentNoText;  //学生姓名，学生性别，学生年龄，学生学号
-    QTextEdit  *studentCollegeText, *studetMajorText, *studentClassText;           //学生所在学院，学生专业,学生班级
     QTextEdit *studentPhoneText, *studentEmailText, *studentDisciplineText;        //学生联系方式，学生邮箱,学生违纪记录
     //下拉列表
-    QComboBox *cb;
+    QComboBox  *studentCollegeBox, *studetMajorBox, *studentClassBox;           //学生所在学院，学生专业,学生班级
 
     QFont ft;
-
+    QPushButton *pb_submit, *pb_return;
     publicUse *pu; //实例化publicUse(公共应用函数类)
 
 private slots:
