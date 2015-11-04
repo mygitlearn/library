@@ -11,6 +11,7 @@
 #include <QPalette>
 #include <QMessageBox>
 #include <QScrollArea>
+#include <QLabel>
 
 
 #include "manage/administration.h"
@@ -83,8 +84,6 @@ void Welcome::on_Signin_clicked()
     while (query.next()){
         search_pasword = query.value(0).toString();
     }
-
-
 
     if(pwdmd5 != search_pasword){
         QMessageBox::information(NULL, QString("title"), QString("Password input error"));

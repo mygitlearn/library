@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     home/login.cpp \
     gitsql/sqlconn.cpp \
     manage/administration.cpp \
-    home/regist.cpp
+    home/regist.cpp \
+    publicUse/publicuse.cpp
 
 
 
@@ -26,7 +27,8 @@ HEADERS  += mainwindow.h \
     home/login.h \
     gitsql/sqlconn.h \
     manage/administration.h \
-    home/regist.h
+    home/regist.h \
+    publicUse/publicuse.h
 
 
 FORMS    += mainwindow.ui \
