@@ -17,10 +17,11 @@ administration::administration(QMainWindow *parent) :
 {
     //初始化管理员登录界面，添加容器控件adminscroll
     adminScroll = new QScrollArea(this);
-    adminScroll->setBackgroundRole(QPalette::Base);
-    adminScroll->setGeometry(0,23,width,height);
-    adminScroll->setVisible(true);
-    session = adminScroll;
+//    adminScroll->setBackgroundRole(QPalette::Base);
+//    adminScroll->setGeometry(0,23,width,height);
+//    adminScroll->setVisible(true);
+//    session = adminScroll;
+    publicScroll(adminScroll);
     ui->setupUi(this);
 }
 
@@ -31,33 +32,30 @@ administration::~administration()
 
 //生成scrollArea容器的公共函数
 void administration::publicScroll(QScrollArea *scrollName){
-    scrollName->setBackgroundRole(QPalette::Dark);
+    scrollName->setBackgroundRole(QPalette::Base);
     scrollName->setGeometry(x,y,width,height);
     scrollName->setVisible(true);
     session = scrollName;
 }
 
-//添加容器（管理员个人信息）
+//个人信息/个人信息(管理员个人信息)
 void administration::on_personalInfo_triggered()
 {
     session->setVisible(false);
-    adminScroll->setVisible(false);
     managerScroll = new QScrollArea(this);
     publicScroll(managerScroll);
 }
 
-//添加学生信息
+//学生管理/添加学生信息
 void administration::on_addStudent_triggered()
 {
     session->setVisible(false);
-    managerScroll->setVisible(false);
     addStudentScroll = new QScrollArea(this);
     publicScroll(addStudentScroll);
     QMessageBox::information(NULL, QString("title"), QString("addstudent"));
 }
 
-//管理学生信息
-
+//学生管理/管理学生信息
 void administration::on_studentInfo_triggered()
 {
     session->setVisible(false);
@@ -66,10 +64,47 @@ void administration::on_studentInfo_triggered()
     QMessageBox::information(NULL, QString("title"), QString("manageStudengScroll"));
 }
 
+//学生管理/信息回收站
 void administration::on_studnetDustbin_triggered()
 {
     session->setVisible(false);
     studentDustbinScroll = new QScrollArea(this);
     publicScroll(studentDustbinScroll);
-    QMessageBox::information(NULL, QString("title"), QString("success"));
+    QMessageBox::information(NULL, QString("title"), QString("studentDustbinScroll"));
+}
+
+//图书管理/添加图书
+void administration::on_addbooks_triggered()
+{
+    session->setVisible(false);
+    addBlooksScroll = new QScrollArea(this);
+    publicScroll(addBlooksScroll);
+    QMessageBox::information(NULL, QString("title"), QString("addBlooksScroll"));
+}
+
+//事务安排/图书整理
+void administration::on_tidybooks_triggered()
+{
+    session->setVisible(false);
+    neatenBooksScroll = new QScrollArea(this);
+    publicScroll(neatenBooksScroll);
+    QMessageBox::information(NULL, QString("title"), QString("neatenBooksScroll"));
+}
+
+//事务管理/卫生清洁
+void administration::on_sanitation_triggered()
+{
+    session->setVisible(false);
+    clearSanitation = new QScrollArea(this);
+    publicScroll(clearSanitation);
+    QMessageBox::information(NULL, QString("title"), QString("clearSanitation"));
+}
+
+//事务管理/信息通告
+void administration::on_annunciate_triggered()
+{
+    session->setVisible(false);
+    informationScroll = new QScrollArea(this);
+    publicScroll(informationScroll);
+    QMessageBox::information(NULL, QString("title"), QString("informationScroll"));
 }
