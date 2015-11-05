@@ -11,6 +11,7 @@
 #include <QPalette>
 #include <QMessageBox>
 #include <QScrollArea>
+#include <QLabel>
 
 
 #include "manage/administration.h"
@@ -84,8 +85,6 @@ void Welcome::on_Signin_clicked()
         search_pasword = query.value(0).toString();
     }
 
-
-
     if(pwdmd5 != search_pasword){
         QMessageBox::information(NULL, QString("title"), QString("Password input error"));
         ui->input_account->setText("");
@@ -94,6 +93,7 @@ void Welcome::on_Signin_clicked()
     }
 
     administration  *tt = new administration();
+    tt->setFixedSize(800,600);
     tt->show();
     this->hide();
 }

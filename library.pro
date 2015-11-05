@@ -19,6 +19,7 @@ SOURCES += main.cpp\
     manage/administration.cpp \
     home/regist.cpp \
     personInfo/personalinfo.cpp
+    publicUse/publicuse.cpp
 
 
 
@@ -31,6 +32,7 @@ HEADERS  += mainwindow.h \
     personInfo/personalinfo.h \
     public/publicheader.h \
     public/commonconfigure.h
+    publicUse/publicuse.h
 
 
 FORMS    += mainwindow.ui \
