@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     gitsql/sqlconn.cpp \
     manage/administration.cpp \
     home/regist.cpp \
-    personInfo/personalinfo.cpp
+    personInfo/personalinfo.cpp \
+    publicUse/publicuse.cpp
     publicUse/publicuse.cpp
 
 
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     home/regist.h \
     personInfo/personalinfo.h \
     public/publicheader.h \
-    public/commonconfigure.h
+    public/commonconfigure.h \
+    publicUse/publicuse.h
     publicUse/publicuse.h
 
 

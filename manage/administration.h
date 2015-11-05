@@ -1,22 +1,10 @@
 ﻿#ifndef ADMINISTRATION_H
 #define ADMINISTRATION_H
 
-#include <QWidget>
-#include <QMainWindow>
-#include <QScrollArea>
-#include <QSemaphore>
-#include <QPushButton>
-#include <QLabel>
-#include <QChar>
-#include <QString>
-#include <QFont>
-#include <QLineEdit>
-#include <QTextEdit>
-#include <QComboBox>        //下拉列表类
-#include <QPushButton>
+
 
 #include "publicUse/publicuse.h"
-
+#include "public/publicheader.h"
 #include <personInfo/personalinfo.h>
 
 namespace Ui {
@@ -76,9 +64,6 @@ private slots:
     void on_studentInfo_triggered();
     void on_studnetDustbin_triggered();
     void on_addbooks_triggered();
-    void on_tidybooks_triggered();
-    void on_sanitation_triggered();
-    void on_annunciate_triggered();
     void on_tidybooks_triggered();
     void on_sanitation_triggered();
     void on_annunciate_triggered();
