@@ -42,8 +42,9 @@ void administration::publicScroll(QScrollArea *scrollName){
 void administration::on_personalInfo_triggered()
 {
     session->setVisible(false);
-    managerScroll = new QScrollArea(this);
-    publicScroll(managerScroll);
+    personInfoPanel = new PersonalInfo(this);
+
+    publicScroll(personInfoPanel);
 }
 
 //学生管理/添加学生信息
