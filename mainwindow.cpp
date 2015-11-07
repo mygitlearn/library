@@ -11,7 +11,6 @@
 #include <home/regist.h>
 
 using namespace std;
-
 Welcome::Welcome(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Welcome)
@@ -83,21 +82,19 @@ void Welcome::on_Signin_clicked()
         ui->input_password->setText("");
         return;
     }else{
-//        QString Welcome::token = account;
-//        Welcome::token = account;
-//        token = account;
+        QSettings settings("config.ini",QSettings::IniFormat);
+        settings.beginGroup("DevOption");
+        settings.setValue("token",account);
+        settings.endGroup();
 
-        Welcome::token = account;
-        cout << account.toStdString();
-        cout << "-------------";
-        cout << token.toStdString();
+
         administration  *tt = new administration();
         tt->setFixedSize(800,600);
         tt->show();
         this->hide();
     }
-
 }
+
 
 
 //注册
@@ -106,6 +103,7 @@ void Welcome::on_signup_clicked()
     regist *reg = new regist();
     reg->show();
 }
+
 
 //退出
 void Welcome::on_legout_clicked()
@@ -117,14 +115,8 @@ void Welcome::on_legout_clicked()
 //返回用户的token
 QString Welcome::getUserToken()
 {
-//    QMessageBox::warning(this,"警告",token);
-    cout << "----------";
-    cout << Welcome::token.toStdString();
-    if(!token.isNull() && !token.isEmpty()){
-        return token;
-    }else{
-        QMessageBox::warning(this,"警告","无法得到token");
-        return NULL;
-    }
+    QSettings settings("config.ini",QSettings::IniFormat);
+    QString toke = settings.value("DevOption/token").toString();
+    return toke;
 }
 

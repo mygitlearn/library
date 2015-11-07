@@ -7,7 +7,7 @@ namespace Ui {
 class PersonalInfo;
 }
 
-class PersonalInfo : public QScrollArea
+class PersonalInfo : public QWidget
 {
     Q_OBJECT
 

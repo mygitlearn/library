@@ -3,18 +3,21 @@
 #include "public/commonconfigure.h"
 #include "mainwindow.h"
 
+using namespace std;
 PersonalInfo::PersonalInfo(QWidget *parent) :
-    QScrollArea(parent),
+    QWidget(parent),
     ui(new Ui::PersonalInfo)
 {
 
-    //数据库操作:
+//    //数据库操作:
     Welcome w;
     QString token = w.getUserToken();
-    QMessageBox::about(this,"token值",token);
 
+//    QMessageBox::about(this,"token值",token);
+    QMessageBox::information(this,"token值",token);
 
-    QMessageBox::about(this,"",Welcome::token);
+    cout << token.toStdString();
+//    QMessageBox::about(this,"",Welcome::token);
     //左边
     QWidget *leftWidget = new QWidget(this);
     leftWidget->setMaximumWidth(120);
@@ -65,7 +68,6 @@ PersonalInfo::PersonalInfo(QWidget *parent) :
 
 
     this->setLayout(layout);
-    ui->setupUi(this);
 }
 
 
@@ -170,7 +172,7 @@ void PersonalInfo::addFirstPanel(QTabWidget *tabWidget,QWidget *widget)
 
     QLineEdit *sdeptValue = new QLineEdit(widget);
     sdeptValue->setGeometry(200,173,100,27);
-//    QComboBox *sdept
+
     //专业
     QLabel *majorTitleLabel = new QLabel(widget);
     setLableTitle(majorTitleLabel,widget,QString("专       业 : "),120,200,70,40,PERSONAL_INFO_FONT_LABEL,PERSONAL_INFO_COLOR_LABEL);

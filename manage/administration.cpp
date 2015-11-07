@@ -53,7 +53,8 @@ void administration::on_personalInfo_triggered()
 {
     session->setVisible(false);
     personInfoPanel = new PersonalInfo(this);
-    publicScroll(personInfoPanel);
+    publicWidget(personInfoPanel);
+//    publicScroll(personInfoPanel);
 }
 
 //学生管理/添加学生信息

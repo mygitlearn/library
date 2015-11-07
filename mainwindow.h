@@ -24,9 +24,8 @@ public:
     // This is available in all editors.
 
     // This is available in all editors.
-    static QString token;
+//    extern QString token;
     QString getUserToken();
-    void setUserToken();
 private slots:
     void on_Signin_clicked();
 

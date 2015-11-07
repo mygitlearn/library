@@ -22,10 +22,13 @@
 #include <QVBoxLayout>  //垂直布局
 #include <QWidget>
 
+#include <QSettings>
 
 #include <QtSql/QSqlQuery>
 #include <QCryptographicHash>
 #include <QtCore/QCoreApplication>
+
+#include <iostream>
 
 #endif // PUBLICHEADER
 
