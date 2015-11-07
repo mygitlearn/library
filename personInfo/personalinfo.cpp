@@ -1,27 +1,51 @@
 #include "personalinfo.h"
 #include "ui_personalinfo.h"
 #include "public/commonconfigure.h"
+#include "mainwindow.h"
 
 PersonalInfo::PersonalInfo(QWidget *parent) :
     QScrollArea(parent),
     ui(new Ui::PersonalInfo)
 {
 
-    tabWidget = new QTabWidget();
+    //数据库操作:
+    Welcome w;
+    QString token = w.getUserToken();
+    QMessageBox::about(this,"token值",token);
 
+
+    QMessageBox::about(this,"",Welcome::token);
     //左边
-    QWidget *leftWidget = new QWidget();
-    leftWidget->setMaximumSize(150,this->frameSize().height());
-    leftWidget->setMinimumSize(150,this->frameSize().height());
-    QPushButton *photoButton = new QPushButton("上传图片");
-    photoButton->resize(100,100);
-    QHBoxLayout *leftLayout = new QHBoxLayout();
-    leftLayout->addWidget(photoButton);
-    leftWidget->setLayout(leftLayout);
+    QWidget *leftWidget = new QWidget(this);
+    leftWidget->setMaximumWidth(120);
+    leftWidget->setMinimumWidth(120);
+
+
+    //图片
+    QScrollArea *leftScroll = new QScrollArea(leftWidget);
+    leftScroll->setStyleSheet("border:none");
+
+    QLabel *photoLabel = new QLabel(leftScroll);
+    photoLabel->setGeometry(0,0,100,100);
+
+
+    QPixmap pm;
+    pm.load(":/new/prefix1/images/welcome.jpg");
+    photoLabel->setPixmap(pm);
+
+    QVBoxLayout *leftLayout = new QVBoxLayout(leftWidget);
+
+    //上传图片
+    QPushButton *photoButton = new QPushButton("上传图片",leftScroll);
+    photoButton->setGeometry(0,120,100,30);
+    leftLayout->addWidget(leftScroll);
+    connect(photoButton,SIGNAL(clicked(bool)),this,SLOT(uploadPhoto()));
 
 
 
     //右边
+    tabWidget = new QTabWidget(this);
+
     QWidget *right_widget_first = new QWidget();
     addFirstPanel(tabWidget,right_widget_first);
 
@@ -32,6 +56,8 @@ PersonalInfo::PersonalInfo(QWidget *parent) :
     QWidget *right_widget_third = new QWidget();
     addThirdPanel(tabWidget,right_widget_third);
 
+
+
     //整个布局
     QHBoxLayout *layout = new QHBoxLayout();
     layout->addWidget(leftWidget);
@@ -39,7 +65,6 @@ PersonalInfo::PersonalInfo(QWidget *parent) :
 
 
     this->setLayout(layout);
-    this->resize(300,100);
     ui->setupUi(this);
 }
 
@@ -145,7 +170,7 @@ void PersonalInfo::addFirstPanel(QTabWidget *tabWidget,QWidget *widget)
 
     QLineEdit *sdeptValue = new QLineEdit(widget);
     sdeptValue->setGeometry(200,173,100,27);
-
+//    QComboBox *sdept
     //专业
     QLabel *majorTitleLabel = new QLabel(widget);
     setLableTitle(majorTitleLabel,widget,QString("专       业 : "),120,200,70,40,PERSONAL_INFO_FONT_LABEL,PERSONAL_INFO_COLOR_LABEL);
@@ -155,7 +180,7 @@ void PersonalInfo::addFirstPanel(QTabWidget *tabWidget,QWidget *widget)
 
     //班级
     QLabel *classTitleLabel = NULL;
-    setLableTitle(classTitleLabel,widget,QString("专       业 : "),120,230,70,40,PERSONAL_INFO_FONT_LABEL,PERSONAL_INFO_COLOR_LABEL);
+    setLableTitle(classTitleLabel,widget,QString("班       级 : "),120,230,70,40,PERSONAL_INFO_FONT_LABEL,PERSONAL_INFO_COLOR_LABEL);
 
     QLineEdit *classValue = new QLineEdit(widget);
     classValue->setGeometry(200,233,100,27);
@@ -248,4 +273,11 @@ void PersonalInfo::setTextEdit(QLineEdit *lineEdit,QWidget *parentWidget,int x,i
 {
     lineEdit->setParent(parentWidget);
     lineEdit->setGeometry(x,y,width,height);
+}
+
+//================
+//上传头像
+void PersonalInfo::uploadPhoto()
+{
+//    QMessageBox::about(this,"上传图片","请联系管理员");
 }

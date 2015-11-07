@@ -1,7 +1,12 @@
 #include "sqlconn.h"
 
 QSqlDatabase  Sqlconn::conn() {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection")){
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    }else{
+        db = QSqlDatabase::addDatabase("QMYSQL");
+    }
     db.setHostName("localhost");
     db.setDatabaseName("library");
     db.setUserName("root");

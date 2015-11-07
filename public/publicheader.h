@@ -23,5 +23,9 @@
 #include <QWidget>
 
 
+#include <QtSql/QSqlQuery>
+#include <QCryptographicHash>
+#include <QtCore/QCoreApplication>
+
 #endif // PUBLICHEADER
 

@@ -1,18 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QtSql/QSqlQuery>
-#include <QCryptographicHash>
-#include <QtCore/QCoreApplication>
+
 #include <iostream>
 #include <string>
-#include <QString>
-#include <QChar>
-#include <QWidget>
-#include <QPalette>
-#include <QMessageBox>
-#include <QScrollArea>
-#include <QLabel>
 
+#include <public/publicheader.h>
 
 #include "manage/administration.h"
 #include <gitsql/sqlconn.h>
@@ -24,7 +16,7 @@ Welcome::Welcome(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Welcome)
 {
-    cout << QString("aaa").toStdString();
+
     QSqlDatabase db = (new Sqlconn())->conn();
     ui->setupUi(this);
 }
@@ -90,13 +82,23 @@ void Welcome::on_Signin_clicked()
         ui->input_account->setText("");
         ui->input_password->setText("");
         return;
+    }else{
+//        QString Welcome::token = account;
+//        Welcome::token = account;
+//        token = account;
+
+        Welcome::token = account;
+        cout << account.toStdString();
+        cout << "-------------";
+        cout << token.toStdString();
+        administration  *tt = new administration();
+        tt->setFixedSize(800,600);
+        tt->show();
+        this->hide();
     }
 
-    administration  *tt = new administration();
-    tt->setFixedSize(800,600);
-    tt->show();
-    this->hide();
 }
+
 
 //注册
 void Welcome::on_signup_clicked()
@@ -110,3 +112,19 @@ void Welcome::on_legout_clicked()
 {
     this->close();
 }
+
+
+//返回用户的token
+QString Welcome::getUserToken()
+{
+//    QMessageBox::warning(this,"警告",token);
+    cout << "----------";
+    cout << Welcome::token.toStdString();
+    if(!token.isNull() && !token.isEmpty()){
+        return token;
+    }else{
+        QMessageBox::warning(this,"警告","无法得到token");
+        return NULL;
+    }
+}
+

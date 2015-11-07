@@ -25,5 +25,8 @@ private:
 
     void setLableTitle(QLabel *label,QWidget *parentWidget,const QString &title, int x, int y, int width, int height, QFont *font, const QString& styleSheet);
     void setTextEdit(QLineEdit *lineEdit,QWidget *parentWidget,int x,int y,int width,int height);
+
+private slots:
+    void uploadPhoto();
 };
 #endif // PERSONALINFO_H

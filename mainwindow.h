@@ -21,7 +21,12 @@ public:
 
     const static int width = 800;
     const static int height =600;
+    // This is available in all editors.
 
+    // This is available in all editors.
+    static QString token;
+    QString getUserToken();
+    void setUserToken();
 private slots:
     void on_Signin_clicked();
 
