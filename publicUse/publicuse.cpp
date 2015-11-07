@@ -5,9 +5,9 @@
 
 //publicUse::publicUse(){}
 
-void publicUse::publicLabel(QScrollArea *scrollName,QLabel *labs, QString title, int lx, int ly, int lwidth, int lheight){
-    QScrollArea *scrName = scrollName;
-    labs = new QLabel(scrName);
+void publicUse::publicLabel(QWidget *widgetName,QLabel *labs, QString title, int lx, int ly, int lwidth, int lheight){
+   // QScrollArea *scrName = scrollName;
+    labs = new QLabel(widgetName);
     ft.setPointSize(12);    //定义字体大小
     labs->setText(title);
     labs->setFont(ft);
@@ -15,15 +15,15 @@ void publicUse::publicLabel(QScrollArea *scrollName,QLabel *labs, QString title,
     labs->setVisible(true);
 }
 
-void publicUse::publicTextEdit(QScrollArea *scrollName, QTextEdit *les, int lx, int ly, int lwidth, int lheight){
+void publicUse::publicTextEdit(QWidget *widgetName, QTextEdit *les, int lx, int ly, int lwidth, int lheight){
 //    QScrollArea *scrName = scrollName;
-    les = new QTextEdit(scrollName);
+    les = new QTextEdit(widgetName);
     les->setGeometry(lx, ly, lwidth, lheight);
     les->setVisible(true);
 }
 
-void publicUse::publicComboBox(QScrollArea *scrollName, QComboBox *cbs, int cx, int cy, int cwidth, int cheight){
-    cbs = new QComboBox(scrollName);
+void publicUse::publicComboBox(QWidget *widgetName, QComboBox *cbs, int cx, int cy, int cwidth, int cheight){
+    cbs = new QComboBox(widgetName);
     cbs->setGeometry(cx, cy, cwidth, cheight);
     cbs->addItem("hongse");
     cbs->addItem("heise");
@@ -31,4 +31,12 @@ void publicUse::publicComboBox(QScrollArea *scrollName, QComboBox *cbs, int cx, 
     cbs->setVisible(true);
     QString aa=cbs->currentText();
     QMessageBox::information(NULL, QString("title"), aa);
+}
+
+void publicUse::publicPushButton(QWidget *widgetName, QPushButton *cbs, char *info, int cx, int cy, int cwidth, int cheight){
+    //QString infor = QString(info);
+    cbs = new QPushButton(widgetName);
+    cbs->setText(QString::fromLocal8Bit(info));
+    cbs->setGeometry(cx, cy, cwidth, cheight);
+    cbs->setVisible(true);
 }
